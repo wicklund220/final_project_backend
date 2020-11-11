@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const app = express();
-// const routes = require('./routes');
+const routes = require('./routes');
 const constants = require('./constants')
 
 const corsOptions = {
@@ -33,6 +33,8 @@ const verifyToken = (req, res, next) => {
         next();
     })
 }
+
+app.use('/auth', routes.auth);
 
 app.listen(process.env.PORT, () => {
     console.log(`I am listening on port ${process.env.PORT}`);
