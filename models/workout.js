@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Workout.belongsTo(models.User, { foreignKey: 'userId' });
     }
   };
   Workout.init({

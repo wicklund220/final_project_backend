@@ -35,6 +35,9 @@ const verifyToken = (req, res, next) => {
 }
 
 app.use('/auth', routes.auth);
+app.use('/workout', verifyToken, routes.workout);
+app.use('/auth/verify', verifyToken, routes.auth);
+app.use('/user', verifyToken, routes.user);
 
 app.listen(process.env.PORT, () => {
     console.log(`I am listening on port ${process.env.PORT}`);
