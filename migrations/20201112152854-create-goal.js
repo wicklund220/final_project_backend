@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Workouts', {
+    await queryInterface.createTable('Goals', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,35 +12,30 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      sets: {
-        type: Sequelize.INTEGER,
+      description: {
+        type: Sequelize.STRING,
         allowNull: false
       },
-      reps: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      weight: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      targetDate: {
+        type: Sequelize.STRING
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       createdAt: {
         allowNull: false,
-        defaultValue: new Date(),
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
         allowNull: false,
-        defaultValue: new Date(),
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Workouts');
+    await queryInterface.dropTable('Goals');
   }
 };
