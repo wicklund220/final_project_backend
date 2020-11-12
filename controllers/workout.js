@@ -22,6 +22,19 @@ const getWorkoutsByUser = (req, res) => {
     })
 }
 
+const createWorkout = (req, res) => {
+    req.body.userId = req.params.user
+
+    Workout.create(req.body)
+    .then(newWorkout => {
+        res.status(constants.SUCCESS).json(newWorkout)
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+}
+
 module.exports = {
-    getWorkoutsByUser
+    getWorkoutsByUser,
+    createWorkout,
 }
