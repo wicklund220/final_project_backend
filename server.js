@@ -9,7 +9,7 @@ const routes = require('./routes');
 const constants = require('./constants')
 
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['http://huge-government.surge.sh/'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
     optionsSuccessStatus: 200
