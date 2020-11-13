@@ -34,7 +34,23 @@ const createWorkout = (req, res) => {
     })
 }
 
+const getWorkoutById = (req, res) => {
+    // console.log(req.params.workoutId)
+    Workout.findByPk(req.params.workoutId)
+    .then(foundWorkout => {
+        if(foundWorkout === null){
+            res.status(constants.BAD_REQUEST).send('ERROR: Incorrect Workout Id')
+        }else{
+            res.status(constants.SUCCESS).json(foundWorkout)
+        }
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+}
+
 module.exports = {
     getWorkoutsByUser,
     createWorkout,
+    getWorkoutById
 }
