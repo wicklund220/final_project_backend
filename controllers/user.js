@@ -8,20 +8,9 @@ const getProfile = (req, res) => {
         sort = 'ASC';
     
     User.findByPk(req.user.id, {
-        // include: [
-        //     {
-        //         model: City,
-        //         attributes: ['id', 'name', 'state', 'img', 'country']
-        //     },
-        //     {
-        //         model: Post,
-        //         attributes: ['id', 'title', 'img']
-        //     }
-        // ],
+       
         attributes: ['id', 'name', 'username', 'createdAt'],
-        // order: [
-        //     [{model: Post}, 'createdAt', sort]
-        // ]
+       
     })
     .then(userProfile => {
         res.status(constants.SUCCESS).json(userProfile)
@@ -40,12 +29,7 @@ const editProfile = (req, res) => {
     })
     .then(() => {
         User.findByPk(req.user.id, {
-            // include: [
-            //     {
-            //         model: City,
-            //         attributes: ['id', 'name', 'state', 'img', 'country']
-            //     }
-            // ],
+          
             attributes: ['id', 'name', 'username', 'createdAt']
         })
         .then(userProfile => {
