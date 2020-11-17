@@ -47,28 +47,10 @@ const getWorkoutById = (req, res) => {
     })
 }
 
-// const deleteWorkout = (req, res) => {
-//     Workout.findByPk(req.params.workoutId)
-//     .then(foundWorkout => {
-//         if(foundWorkout.userId === req.user.id){
-//             Workout.destroy({
-//                 where: {id: req.params.workoutId}
-//             })
-//             .then(() => {
-//                 res.status(constants.SUCCESS).send('success')
-//             })
-//         } else {
-//             res.status(constants.FORBIDDEN).send('ERROR: Workout not created by User')
-//         }
-//     })
-//     .catch(err => {
-//         res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
-//     })
-// }
+
 
 module.exports = {
     getWorkoutsByUser,
     createWorkout,
     getWorkoutById,
-    // deleteWorkout
 }
